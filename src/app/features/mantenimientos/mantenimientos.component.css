@@ -1,0 +1,162 @@
+/* Diseño global */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Títulos */
+  h2 {
+    color: #343a40;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  /* Estilos para las tarjetas */
+  .card {
+    border-radius: 10px;
+    border: none;
+    background-color: #f1f3f5;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    color: #495057;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para los formularios */
+  .form-label {
+    font-weight: 500;
+    color: #495057;
+  }
+  
+  .form-control {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #f8f9fa;
+  }
+  
+  .form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+  }
+  
+  /* Botones */
+  button {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  .btn-success {
+    background-color: #198754;
+    border-color: #198754;
+  }
+  
+  .btn-success:hover {
+    background-color: #157347;
+    border-color: #146c43;
+  }
+  
+  .btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+  }
+  
+  .btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+  }
+  
+  /* Estilos para la tabla */
+  .table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    text-align: left;
+    padding: 12px;
+  }
+  
+  .table th {
+    background-color: #0d6efd;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .table td {
+    background-color: #f8f9fa;
+  }
+  
+  .table-bordered {
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+  }
+  
+  .table-bordered td,
+  .table-bordered th {
+    border: 1px solid #ced4da;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #e9ecef;
+  }
+  
+  /* Estilos para acciones */
+  button.btn-sm {
+    padding: 5px 10px;
+    font-size: 0.875rem;
+  }
+  
+  button.btn-sm.me-1 {
+    margin-right: 10px;
+  }
+  
