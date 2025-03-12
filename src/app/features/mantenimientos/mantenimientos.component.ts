@@ -8,9 +8,8 @@ import { Camera, CameraResultType } from '@capacitor/camera';
 @Component({
   selector: 'app-mantenimientos', // Selector del componente
   standalone: true, // Indica que el componente es independiente
-  templateUrl: './mantenimientos.component.html',
   imports: [CommonModule, FormsModule], // Importa los módulos necesarios
-  
+  templateUrl: './mantenimientos.component.html',
   styleUrl: './mantenimientos.component.css' // Ruta a los estilos CSS
 })
 export class MantenimientosComponent {
