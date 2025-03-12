@@ -1,0 +1,11 @@
+<div class="container">
+    <h2>Captura de Evidencia</h2>
+    <div class="mt-3">
+      <button class="btn btn-primary" (click)="tomarFoto()">Tomar Foto</button>
+    </div>
+    <div *ngIf="capturedImage" class="mt-3">
+      <h5>Imagen Capturada</h5>
+      <img [src]="capturedImage" alt="Imagen capturada" class="img-fluid"/>
+    </div>
+  </div>
+  

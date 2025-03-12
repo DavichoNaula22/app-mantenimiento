@@ -1,71 +1,81 @@
-<div class="container">
-    <h2 class="mb-4">Lista de Mantenimientos</h2>
-  
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>App Lujosa - Lista de Mantenimientos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Lista de Mantenimientos</h2>
+
     <!-- Formulario para agregar un mantenimiento -->
-    <div class="card mb-4">
+    <div class="card">
       <div class="card-body">
         <h5 class="card-title">Agregar Mantenimiento</h5>
         <form (ngSubmit)="agregar()">
-          <div class="mb-3">
+          <div class="form-group">
             <label class="form-label">Nombre</label>
             <input type="text" class="form-control" [(ngModel)]="nuevoMantenimiento.nombre" name="nombre" required>
           </div>
-          <div class="mb-3">
+          <div class="form-group">
             <label class="form-label">Descripción</label>
             <input type="text" class="form-control" [(ngModel)]="nuevoMantenimiento.descripcion" name="descripcion" required>
           </div>
-          <div class="mb-3">
+          <div class="form-group">
             <label class="form-label">Fecha</label>
             <input type="date" class="form-control" [(ngModel)]="nuevoMantenimiento.fecha" name="fecha" required>
           </div>
-          <button type="submit" class="btn btn-success">Agregar</button>
+          <button type="submit" class="btn btn-primary">Agregar</button>
         </form>
       </div>
     </div>
-  
+
     <!-- Tabla de mantenimientos -->
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Descripción</th>
-          <th>Fecha</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let mantenimiento of mantenimientos">
-          <td>{{ mantenimiento.id }}</td>
-  
-          <!-- Si el mantenimiento está en edición, mostrar inputs -->
-          <td *ngIf="mantenimientoEnEdicion?.id === mantenimiento.id">
-            <input type="text" class="form-control" [(ngModel)]="mantenimientoEnEdicion.nombre">
-          </td>
-          <td *ngIf="mantenimientoEnEdicion?.id === mantenimiento.id">
-            <input type="text" class="form-control" [(ngModel)]="mantenimientoEnEdicion.descripcion">
-          </td>
-          <td *ngIf="mantenimientoEnEdicion?.id === mantenimiento.id">
-            <input type="date" class="form-control" [(ngModel)]="mantenimientoEnEdicion.fecha">
-          </td>
-  
-          <!-- Si no está en edición, mostrar datos -->
-          <td *ngIf="mantenimientoEnEdicion?.id !== mantenimiento.id">{{ mantenimiento.nombre }}</td>
-          <td *ngIf="mantenimientoEnEdicion?.id !== mantenimiento.id">{{ mantenimiento.descripcion }}</td>
-          <td *ngIf="mantenimientoEnEdicion?.id !== mantenimiento.id">{{ mantenimiento.fecha }}</td>
-  
-          <!-- Acciones -->
-          <td>
-            <!-- Botón Guardar si está en edición -->
-            <button *ngIf="mantenimientoEnEdicion?.id === mantenimiento.id" class="btn btn-success btn-sm me-1" (click)="guardarEdicion()">Guardar</button>
-            <button *ngIf="mantenimientoEnEdicion?.id === mantenimiento.id" class="btn btn-secondary btn-sm me-1" (click)="cancelarEdicion()">Cancelar</button>
-  
-            <!-- Botón Editar y Eliminar si NO está en edición -->
-            <button *ngIf="mantenimientoEnEdicion?.id !== mantenimiento.id" class="btn btn-warning btn-sm me-1" (click)="editar(mantenimiento)">Editar</button>
-            <button *ngIf="mantenimientoEnEdicion?.id !== mantenimiento.id" class="btn btn-danger btn-sm" (click)="eliminar(mantenimiento.id)">Eliminar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+            <th>Evidencia</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let mantenimiento of mantenimientos">
+            <td>{{ mantenimiento.id }}</td>
+            <td *ngIf="mantenimientoEnEdicion?.id === mantenimiento.id">
+              <input type="text" class="form-control" [(ngModel)]="mantenimientoEnEdicion.nombre">
+            </td>
+            <td *ngIf="mantenimientoEnEdicion?.id !== mantenimiento.id">{{ mantenimiento.nombre }}</td>
+            <td *ngIf="mantenimientoEnEdicion?.id === mantenimiento.id">
+              <input type="text" class="form-control" [(ngModel)]="mantenimientoEnEdicion.descripcion">
+            </td>
+            <td *ngIf="mantenimientoEnEdicion?.id !== mantenimiento.id">{{ mantenimiento.descripcion }}</td>
+            <td *ngIf="mantenimientoEnEdicion?.id === mantenimiento.id">
+              <input type="date" class="form-control" [(ngModel)]="mantenimientoEnEdicion.fecha">
+            </td>
+            <td *ngIf="mantenimientoEnEdicion?.id !== mantenimiento.id">{{ mantenimiento.fecha }}</td>
+            <td>
+              <button *ngIf="mantenimientoEnEdicion?.id === mantenimiento.id" class="btn btn-primary btn-sm" (click)="guardarEdicion()">Guardar</button>
+              <button *ngIf="mantenimientoEnEdicion?.id === mantenimiento.id" class="btn btn-secondary btn-sm" (click)="cancelarEdicion()">Cancelar</button>
+              <button *ngIf="mantenimientoEnEdicion?.id !== mantenimiento.id" class="btn btn-warning btn-sm" (click)="editar(mantenimiento)">Editar</button>
+              <button *ngIf="mantenimientoEnEdicion?.id !== mantenimiento.id" class="btn btn-danger btn-sm" (click)="eliminar(mantenimiento.id)">Eliminar</button>
+            </td>
+            <td>
+              <button class="btn btn-info btn-sm" (click)="tomarFoto(mantenimiento)">Tomar Foto</button>
+              <div *ngIf="mantenimiento.imagen" class="evidencia">
+                <img [src]="mantenimiento.imagen" alt="Evidencia" class="img-fluid">
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-  
+</body>
+</html>
