@@ -227,9 +227,39 @@ h2 {
     margin-bottom: 10px;
     padding: 12px 0;
   }
+
+  .table {
+    min-width: 600px; /* Asegura que haya suficiente espacio para el desplazamiento */
+  }
+
   .table th, .table td {
     padding: 12px;
     font-size: 0.9rem;
+  }
+
+  .table thead {
+    display: none;
+  }
+  .table tbody, .table tr, .table td {
+    display: block;
+    width: 100%;
+  }
+  .table tr {
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  .table td {
+    text-align: right;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
+  .table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
+    text-align: left;
   }
 }
 

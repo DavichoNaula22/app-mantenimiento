@@ -35,36 +35,25 @@
     <!-- Tabla de mantenimientos -->
     <div class="table-responsive">
       <table class="table table-bordered">
-        <thead>
+        <thead class="d-none d-sm-table-header">
           <tr>
             <th>ID</th>
             <th>Nombre</th>
-            <th>Descripción</th>
+            <th class="d-none d-md-table-cell">Descripción</th>
             <th>Fecha</th>
             <th>Acciones</th>
             <th>Evidencia</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let mantenimiento of mantenimientos">
+          <tr *ngFor="let mantenimiento of mantenimientos" class="d-sm-table-row">
             <td>{{ mantenimiento.id }}</td>
-            <td *ngIf="mantenimientoEnEdicion?.id === mantenimiento.id">
-              <input type="text" class="form-control" [(ngModel)]="mantenimientoEnEdicion.nombre">
-            </td>
-            <td *ngIf="mantenimientoEnEdicion?.id !== mantenimiento.id">{{ mantenimiento.nombre }}</td>
-            <td *ngIf="mantenimientoEnEdicion?.id === mantenimiento.id">
-              <input type="text" class="form-control" [(ngModel)]="mantenimientoEnEdicion.descripcion">
-            </td>
-            <td *ngIf="mantenimientoEnEdicion?.id !== mantenimiento.id">{{ mantenimiento.descripcion }}</td>
-            <td *ngIf="mantenimientoEnEdicion?.id === mantenimiento.id">
-              <input type="date" class="form-control" [(ngModel)]="mantenimientoEnEdicion.fecha">
-            </td>
-            <td *ngIf="mantenimientoEnEdicion?.id !== mantenimiento.id">{{ mantenimiento.fecha }}</td>
+            <td>{{ mantenimiento.nombre }}</td>
+            <td class="d-none d-md-table-cell">{{ mantenimiento.descripcion }}</td>
+            <td>{{ mantenimiento.fecha }}</td>
             <td>
-              <button *ngIf="mantenimientoEnEdicion?.id === mantenimiento.id" class="btn btn-primary btn-sm" (click)="guardarEdicion()">Guardar</button>
-              <button *ngIf="mantenimientoEnEdicion?.id === mantenimiento.id" class="btn btn-secondary btn-sm" (click)="cancelarEdicion()">Cancelar</button>
-              <button *ngIf="mantenimientoEnEdicion?.id !== mantenimiento.id" class="btn btn-warning btn-sm" (click)="editar(mantenimiento)">Editar</button>
-              <button *ngIf="mantenimientoEnEdicion?.id !== mantenimiento.id" class="btn btn-danger btn-sm" (click)="eliminar(mantenimiento.id)">Eliminar</button>
+              <button class="btn btn-warning btn-sm" (click)="editar(mantenimiento)">Editar</button>
+              <button class="btn btn-danger btn-sm" (click)="eliminar(mantenimiento.id)">Eliminar</button>
             </td>
             <td>
               <button class="btn btn-info btn-sm" (click)="tomarFoto(mantenimiento)">Tomar Foto</button>
